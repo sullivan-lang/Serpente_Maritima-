@@ -1,465 +1,201 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SERPENTE MARÍTIMA - RedM Metas Semanais</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&display=swap');
-
-  :root {
-    --bg-dark: #0a0a0a;
-    --bg-card: #1a1a1a;
-    --green-accent: #00a86b;
-    --border: #2d2d2d;
-    --text: #e0e0e0;
-  }
-
-    * { font-family: 'Rajdhani', sans-serif; }
-  h1, h2, h3,.font-orbitron { font-family: 'Orbitron', sans-serif; }
-
-  body {
-    background: linear-gradient(135deg, #0a0a0a 0%, #0d0d0d 50%, #0a0a0a 100%);
-    min-height: 100vh;
-    color: var(--text);
-  }
-
- .card-gamer {
-    background: #1a1a1a;
-    border: 1px solid var(--border);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
-    transition: all 0.3s ease;
-  }
- .card-gamer:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.7);
-    border-color: #3a3a3a;
-  }
-
- .progress-bar {
-    background: #0a0a0a;
-    border: 1px solid #3a3a3a;
-    overflow: hidden;
-  }
- .progress-fill {
-    background: #5a5a5a;
-    height: 100%;
-    transition: width 0.6s ease;
-  }
-
- .badge-meta {
-    background: #4a4a4a;
-    color: #e0e0e0;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-  }
- .badge-premium {
-    background: linear-gradient(135deg, #5a5a5a 0%, #6a6a6a 100%);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-    color: #e0e0e0;
-  }
-
- .btn-comprovante {
-    background: linear-gradient(135deg, #3a3a3a 0%, #4a4a4a 100%);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-    transition: all 0.3s ease;
-    color: #e0e0e0;
-  }
- .btn-comprovante:hover {
-    background: linear-gradient(135deg, #4a4a4a 0%, #5a5a5a 100%);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
-  }
-
- .btn-primary {
-    background: linear-gradient(135deg, #4a4a4a 0%, #5a5a5a 100%);
-    color: #e0e0e0;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease;
-  }
- .btn-primary:hover {
-    background: linear-gradient(135deg, #5a5a5a 0%, #6a6a6a 100%);
-    transform: translateY(-2px);
-  }
-
- .text-green { color: var(--green-accent); }
- .text-glow-accent { text-shadow: 0 0 8px rgba(0, 168, 107, 0.3); }
- .icon-box {
-    background: rgba(42, 42, 42, 0.6);
-    border: 1px solid var(--green-accent);
-  }
- .icon-accent { color: var(--green-accent); }
-
- .modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.85);
-    backdrop-filter: blur(8px);
-    z-index: 1000;
-    align-items: center;
-    justify-content: center;
-    padding: 1rem;
-  }
- .modal.active { display: flex; }
-
- .input-gamer {
-    background: #0a0a0a;
-    border: 2px solid #2d2d2d;
-    color: var(--text);
-    transition: all 0.3s ease;
-  }
- .input-gamer:focus {
-    outline: none;
-    border-color: var(--green-accent);
-    box-shadow: 0 0 0 3px rgba(0, 168, 107, 0.1);
-  }
-
- .step-card {
-    background: linear-gradient(145deg, rgba(26, 26, 26, 0.6) 0%, rgba(42, 42, 42, 0.6) 100%);
-    border: 1px solid #2d2d2d;
-    backdrop-filter: blur(10px);
-  }
- .border-accent { border-color: var(--green-accent); }
-
- .toast {
-    position: fixed;
-    bottom: 2rem;
-    right: 2rem;
-    background: #1a1a1a;
-    border: 2px solid var(--green-accent);
-    padding: 1rem 1.5rem;
-    border-radius: 0.5rem;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.8);
-    z-index: 2000;
-    transform: translateY(200px);
-    transition: transform 0.3s ease;
-  }
- .toast.show { transform: translateY(0); }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Serpente Marítima - REDM</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
 </head>
-<body class="p-4 md:p-6 lg:p-8">
-
-  <div id="toast" class="toast hidden">
-    <p class="font-bold text-green flex items-center gap-2">
-      <i class="fas fa-check-circle"></i>
-      <span id="toastMsg"></span>
-    </p>
-  </div>
-
-  <div class="max-w-7xl mx-auto relative z-10">
-
-    <header class="mb-8 md:mb-12">
-      <div class="card-gamer rounded-xl p-4 md:p-6 flex flex-col md:flex-row items-center justify-between gap-4">
-        <div class="flex items-center gap-3">
-          <div class="icon-box w-12 h-12 rounded-lg flex items-center justify-center">
-            <i class="fas fa-hat-cowboy text-2xl icon-accent"></i>
-          </div>
-          <div>
-            <h1 class="text-2xl md:text-3xl font-black font-orbitron text-white tracking-tight">
-              SERPENTE <span class="text-green">MARÍTIMA</span>
-            </h1>
-            <p class="text-xs text-gray-400 font-semibold tracking-wider">REDM • METAS SEMANAIS</p>
-          </div>
-        </div>
-
-        <button onclick="abrirModalComprovante()" class="btn-comprovante px-6 py-2 rounded-lg font-bold text-sm flex items-center gap-2 w-full md:w-auto justify-center">
-          <i class="fas fa-upload text-lg"></i>
-          ENVIAR COMPROVANTE
-        </button>
-      </div>
-    </header>
-
-    <section class="mb-8 md:mb-12">
-      <div class="card-gamer rounded-xl p-6 md:p-8">
-        <div class="flex items-center gap-3 mb-6">
-          <div class="icon-box w-10 h-10 rounded-lg flex items-center justify-center">
-            <i class="fas fa-bullseye text-xl icon-accent"></i>
-          </div>
-          <h2 class="text-xl md:text-2xl font-black text-white font-orbitron">PROGRESSO GERAL DA SEMANA</h2>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-          <div class="bg-[#0a0a0a] rounded-lg p-4 border border-[#3a3a3a]">
-            <p class="text-xs text-gray-400 font-bold mb-2 tracking-wider">DINHEIRO LIMPO</p>
-            <div class="flex items-end justify-between mb-2">
-              <span class="text-3xl md:text-4xl font-black text-white font-orbitron">$66.200</span>
-              <span class="text-sm text-gray-400 font-bold">/ $66.200</span>
-            </div>
-            <div class="progress-bar h-3 rounded-full">
-              <div class="progress-fill rounded-full" style="width: 100%"></div>
-            </div>
-            <p class="text-xs text-green font-bold mt-2">100% CONCLUÍDO</p>
-          </div>
-
-          <div class="bg-[#0a0a0a] rounded-lg p-4 border border-[#3a3a3a]">
-            <p class="text-xs text-gray-400 font-bold mb-2 tracking-wider">DINHEIRO SUJO</p>
-            <div class="flex items-end justify-between mb-2">
-              <span class="text-3xl md:text-4xl font-black text-white font-orbitron">$35.600</span>
-              <span class="text-sm text-gray-400 font-bold">/ $39.900</span>
-            </div>
-            <div class="progress-bar h-3 rounded-full">
-              <div class="progress-fill rounded-full" style="width: 89.2%"></div>
-            </div>
-            <p class="text-xs text-gray-300 font-bold mt-2">89.2% CONCLUÍDO</p>
-          </div>
-        </div>
-
-        <div class="bg-[#0a0a0a] rounded-lg p-4 border border-[#3a3a3a]">
-          <p class="text-xs text-gray-400 font-bold mb-2 tracking-wider">META GERAL</p>
-          <div class="flex items-end justify-between mb-2">
-            <span class="text-3xl md:text-4xl font-black text-white font-orbitron">$101.800</span>
-            <span class="text-sm text-gray-400 font-bold">/ $106.100</span>
-          </div>
-          <div class="progress-bar h-4 rounded-full">
-            <div class="progress-fill rounded-full" style="width: 95.9%"></div>
-          </div>
-          <p class="text-xs text-gray-300 font-bold mt-2">95.9% CONCLUÍDO</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="mb-8 md:mb-12">
-      <div class="flex items-center gap-3 mb-6">
-        <div class="icon-box w-10 h-10 rounded-lg flex items-center justify-center">
-          <i class="fas fa-trophy text-xl icon-accent"></i>
-        </div>
-        <h2 class="text-xl md:text-2xl font-black text-white font-orbitron">RANKING SEMANAL</h2>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-
-        <div class="card-gamer rounded-xl p-5 relative overflow-hidden">
-          <div class="absolute top-3 right-3">
-            <div class="badge-premium w-10 h-10 rounded-full flex items-center justify-center">
-              <span class="font-black text-sm">#1</span>
-            </div>
-          </div>
-          <div class="flex items-center gap-3 mb-4">
-            <div class="icon-box w-14 h-14 rounded-full flex items-center justify-center">
-              <i class="fas fa-user-circle text-3xl icon-accent"></i>
-            </div>
-            <div>
-              <h3 class="text-lg font-black text-white">Pipoka Moura</h3>
-              <p class="text-xs text-gray-500 font-semibold">ID: 1011</p>
-            </div>
-          </div>
-          <div class="space-y-2 mb-4">
-            <div class="flex justify-between text-sm">
-              <span class="text-gray-400 font-semibold">Dinheiro Limpo:</span>
-              <span class="text-white font-bold">$20.000</span>
-            </div>
-            <div class="flex justify-between text-sm">
-              <span class="text-gray-400 font-semibold">Dinheiro Sujo:</span>
-              <span class="text-white font-bold">$14.000</span>
-            </div>
-            <div class="flex justify-between text-sm pt-2 border-t border-[#2d2d2d]">
-              <span class="text-gray-300 font-bold">Total:</span>
-              <span class="text-green font-black text-lg">$34.000</span>
-            </div>
-          <div class="progress-bar h-2 rounded-full">
-            <div class="progress-fill rounded-full" style="width: 100%"></div>
-          </div>
-        </div>
-
-        <div class="card-gamer rounded-xl p-5 relative overflow-hidden">
-          <div class="absolute top-3 right-3">
-            <div class="badge-meta w-10 h-10 rounded-full flex items-center justify-center">
-              <span class="font-black text-sm">#2</span>
-            </div>
-          </div>
-          <div class="flex items-center gap-3 mb-4">
-            <div class="icon-box w-14 h-14 rounded-full flex items-center justify-center">
-              <i class="fas fa-user-circle text-3xl icon-accent"></i>
-            </div>
-            <div>
-              <h3 class="text-lg font-black text-white">Carlos Silva</h3>
-              <p class="text-xs text-gray-500 font-semibold">ID: 1012</p>
-            </div>
-          </div>
-          <div class="space-y-2 mb-4">
-            <div class="flex justify-between text-sm">
-              <span class="text-gray-400 font-semibold">Dinheiro Limpo:</span>
-              <span class="text-white font-bold">$18.500</span>
-            </div>
-            <div class="flex justify-between text-sm">
-              <span class="text-gray-400 font-semibold">Dinheiro Sujo:</span>
-              <span class="text-white font-bold">$11.200</span>
-            </div>
-            <div class="flex justify-between text-sm pt-2 border-t border-[#2d2d2d]">
-              <span class="text-gray-300 font-bold">Total:</span>
-              <span class="text-green font-black text-lg">$29.700</span>
-            </div>
-          </div>
-          <div class="progress-bar h-2 rounded-full">
-            <div class="progress-fill rounded-full" style="width: 87.3%"></div>
-          </div>
-        </div>
-
-        <div class="card-gamer rounded-xl p-5 relative overflow-hidden">
-          <div class="absolute top-3 right-3">
-            <div class="badge-meta w-10 h-10 rounded-full flex items-center justify-center">
-              <span class="font-black text-sm">#3</span>
-            </div>
-          </div>
-          <div class="flex items-center gap-3 mb-4">
-            <div class="icon-box w-14 h-14 rounded-full flex items-center justify-center">
-              <i class="fas fa-user-circle text-3xl icon-accent"></i>
-            </div>
-            <div>
-              <h3 class="text-lg font-black text-white">Ana Costa</h3>
-              <p class="text-xs text-gray-500 font-semibold">ID: 1013</p>
-            </div>
-          </div>
-          <div class="space-y-2 mb-4">
-            <div class="flex justify-between text-sm">
-              <span class="text-gray-400 font-semibold">Dinheiro Limpo:</span>
-              <span class="text-white font-bold">$15.200</span>
-            </div>
-            <div class="flex justify-between text-sm">
-              <span class="text-gray-400 font-semibold">Dinheiro Sujo:</span>
-              <span class="text-white font-bold">$8.400</span>
-            </div>
-            <div class="flex justify-between text-sm pt-2 border-t border-[#2d2d2d]">
-              <span class="text-gray-300 font-bold">Total:</span>
-              <span class="text-green font-black text-lg">$23.600</span>
-            </div>
-          </div>
-          <div class="progress-bar h-2 rounded-full">
-            <div class="progress-fill rounded-full" style="width: 69.4%"></div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <section class="mb-8 md:mb-12">
-      <div class="flex items-center gap-3 mb-6">
-        <div class="icon-box w-10 h-10 rounded-lg flex items-center justify-center">
-          <i class="fas fa-question-circle text-xl icon-accent"></i>
-        </div>
-        <h2 class="text-xl md:text-2xl font-black text-white font-orbitron">COMO FUNCIONA</h2>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
-        <div class="step-card rounded-xl p-6">
-          <div class="icon-box w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-            <span class="text-2xl font-black icon-accent">1</span>
-          </div>
-          <h3 class="text-lg font-black text-white mb-2">FAÇA SEU DEPÓSITO</h3>
-          <p class="text-sm text-gray-400">Deposite dinheiro limpo ou sujo no cofre da gangue durante a semana.</p>
-        </div>
-
-        <div class="step-card rounded-xl p-6">
-          <div class="icon-box w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-            <span class="text-2xl font-black icon-accent">2</span>
-          </div>
-          <h3 class="text-lg font-black text-white mb-2">ENVIE O COMPROVANTE</h3>
-          <p class="text-sm text-gray-400">Clique em ENVIAR COMPROVANTE e preencha com seus dados e valor.</p>
-        </div>
-
-        <div class="step-card rounded-xl p-6">
-          <div class="icon-box w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-            <span class="text-2xl font-black icon-accent">3</span>
-          </div>
-          <h3 class="text-lg font-black text-white mb-2">AGUARDE APROVAÇÃO</h3>
-          <p class="text-sm text-gray-400">Admin valida seu depósito e você aparece no ranking.</p>
-        </div>
-      </div>
-    </section>
-
-  </div>
-
-  <!-- MODAL COMPROVANTE -->
-  <div id="modalComprovante" class="modal">
-    <div class="card-gamer rounded-xl p-6 w-full max-w-md">
-      <h3 class="text-2xl font-black text-white mb-4 font-orbitron">ENVIAR COMPROVANTE</h3>
-      <form id="formComprovante" class="space-y-4">
-        <div>
-          <label class="block text-sm font-bold text-gray-400 mb-2">ID REDM</label>
-          <input type="number" id="id_redm" class="input-gamer w-full px-4 py-3 rounded-lg" placeholder="Ex: 1011" required>
+<body class="bg-gray-900 text-gray-100">
+  <!-- Header -->
+  <div class="max-w-7xl mx-auto p-4">
+    <div class="bg-gray-800 rounded-lg p-4 mb-6 flex justify-between items-center border border-gray-700">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 bg-green-600 rounded-lg flex items-center justify-center">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
         </div>
         <div>
-          <label class="block text-sm font-bold text-gray-400 mb-2">NICK NO JOGO</label>
-          <input type="text" id="nick" class="input-gamer w-full px-4 py-3 rounded-lg" placeholder="Ex: Pipoka Moura" required>
+          <h1 class="text-xl font-bold">SERPENTE <span class="text-green-500">MARÍTIMA</span></h1>
+          <p class="text-xs text-gray-400">REDM • METAS SEMANAIS</p>
         </div>
-        <div>
-          <label class="block text-sm font-bold text-gray-400 mb-2">VALOR EM $</label>
-          <input type="number" id="valor" class="input-gamer w-full px-4 py-3 rounded-lg" placeholder="Ex: 5000" required>
+      </div>
+      <button onclick="abrirModalComprovante()" class="bg-green-600 hover:bg-green-700 px-4 py-2 rounded-lg flex items-center gap-2">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg>
+        ENVIAR COMPROVANTE
+      </button>
+    </div>
+
+    <!-- Progresso -->
+    <div class="bg-gray-800 rounded-lg p-6 mb-6 border border-gray-700">
+      <div class="flex items-center gap-2 mb-4">
+        <div class="w-6 h-6 bg-green-600 rounded-full flex items-center justify-center">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
         </div>
-        <div>
-          <label class="block text-sm font-bold text-gray-400 mb-2">TIPO</label>
-          <select id="tipo" class="input-gamer w-full px-4 py-3 rounded-lg">
-            <option value="sujo">Dinheiro Sujo</option>
-            <option value="limpo">Dinheiro Limpo</option>
-          </select>
+        <h2 class="text-lg font-bold">PROGRESSO GERAL DA SEMANA</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+        <div class="bg-gray-900 rounded-lg p-4">
+          <p class="text-xs text-gray-400 mb-1">DINHEIRO LIMPO</p>
+          <div class="flex justify-between items-baseline mb-2">
+            <span class="text-3xl font-bold">$66.200</span>
+            <span class="text-sm text-gray-400">/ $66.200</span>
+          </div>
+          <div class="w-full bg-gray-700 rounded-full h-2">
+            <div class="bg-green-500 h-2 rounded-full" style="width: 100%"></div>
+          </div>
+          <p class="text-xs text-green-500 mt-1">100% CONCLUÍDO</p>
         </div>
-        <div class="flex gap-3 pt-2">
-          <button type="submit" class="btn-primary flex-1 py-3 rounded-lg font-bold">
-            <i class="fas fa-paper-plane mr-2"></i>ENVIAR
-          </button>
-          <button type="button" onclick="fecharModalComprovante()" class="flex-1 py-3 rounded-lg font-bold bg-[#1a1a1a] border border-[#2d2d2d] hover:border-red-700 transition-all text-[#e0e0e0]">
-            CANCELAR
-          </button>
+        <div class="bg-gray-900 rounded-lg p-4">
+          <p class="text-xs text-gray-400 mb-1">DINHEIRO SUJO</p>
+          <div class="flex justify-between items-baseline mb-2">
+            <span class="text-3xl font-bold">$35.600</span>
+            <span class="text-sm text-gray-400">/ $39.900</span>
+          </div>
+          <div class="w-full bg-gray-700 rounded-full h-2">
+            <div class="bg-green-500 h-2 rounded-full" style="width: 89%"></div>
+          </div>
+          <p class="text-xs text-green-500 mt-1">89.2% CONCLUÍDO</p>
         </div>
-      </form>
+      </div>
+      <div class="bg-gray-900 rounded-lg p-4">
+        <p class="text-xs text-gray-400 mb-1">META GERAL</p>
+        <div class="flex justify-between items-baseline mb-2">
+          <span class="text-3xl font-bold">$101.800</span>
+          <span class="text-sm text-gray-400">/ $106.100</span>
+        </div>
+        <div class="w-full bg-gray-700 rounded-full h-2">
+          <div class="bg-green-500 h-2 rounded-full" style="width: 96%"></div>
+        </div>
+        <p class="text-xs text-green-500 mt-1">96% CONCLUÍDO</p>
+      </div>
+    </div>
+
+    <!-- Ranking -->
+    <div class="bg-gray-800 rounded-lg p-6 border border-gray-700">
+      <div class="flex items-center gap-2 mb-4">
+        <svg class="w-6 h-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>
+        <h2 class="text-lg font-bold">RANKING SEMANAL</h2>
+      </div>
+      <div id="ranking" class="space-y-3"></div>
     </div>
   </div>
 
-<script src="https://unpkg.com/@supabase/supabase-js@2"></script>
-<script>
-const SUPABASE_URL = 'https://svovjkplzjdifyumtiwh.supabase.co'
-const SUPABASE_KEY = 'sb_publishable_FgX7hvfrvo57uMW2Npq56A_lJydU1bg'
-const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY)
+  <!-- Modal Comprovante -->
+  <div id="modalComprovante" class="hidden fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 z-50">
+    <div class="bg-gray-800 rounded-lg p-6 w-full max-w-md border border-gray-700">
+      <div class="flex justify-between items-center mb-4">
+        <h3 class="text-lg font-bold">Enviar Comprovante</h3>
+        <button onclick="fecharModalComprovante()" class="text-gray-400 hover:text-white">✕</button>
+      </div>
+      <form id="formComprovante" class="space-y-4">
+        <div>
+          <label class="block text-sm mb-1">ID REDM</label>
+          <input type="number" id="id_redm" required class="w-full bg-gray-900 border border-gray-700 rounded px-3 py-2">
+        </div>
+        <div>
+          <label class="block text-sm mb-1">NICK NO JOGO</label>
+          <input type="text" id="nick" required class="w-full bg-gray-900 border border-gray-700 rounded px-3 py-2">
+        </div>
+        <div>
+          <label class="block text-sm mb-1">VALOR EM $</label>
+          <input type="number" id="valor" required class="w-full bg-gray-900 border border-gray-700 rounded px-3 py-2">
+        </div>
+        <div>
+          <label class="block text-sm mb-1">TIPO</label>
+          <select id="tipo" required class="w-full bg-gray-900 border border-gray-700 rounded px-3 py-2">
+            <option value="Dinheiro Limpo">Dinheiro Limpo</option>
+            <option value="Dinheiro Sujo">Dinheiro Sujo</option>
+          </select>
+        </div>
+        <button type="submit" class="w-full bg-green-600 hover:bg-green-700 py-2 rounded-lg font-bold">ENVIAR</button>
+      </form>
+      <div id="msgComprovante" class="mt-3 text-center text-sm"></div>
+    </div>
+  </div>
 
-function abrirModalComprovante() {
-  document.getElementById('modalComprovante').classList.add('active')
-}
-function fecharModalComprovante() {
-  document.getElementById('modalComprovante').classList.remove('active')
-}
+  <!-- Toast -->
+  <div id="toast" class="hidden fixed bottom-4 right-4 bg-green-600 text-white px-6 py-3 rounded-lg shadow-lg">
+    <span id="toastMsg"></span>
+  </div>
 
-function showToast(msg) {
-  const toast = document.getElementById('toast')
-  document.getElementById('toastMsg').textContent = msg
-  toast.classList.remove('hidden')
-  toast.classList.add('show')
-  setTimeout(() => {
-    toast.classList.remove('show')
-    setTimeout(() => toast.classList.add('hidden'), 300)
-  }, 3000)
-}
+  <script>
+    // TROQUE AQUI PELAS SUAS CHAVES DO SUPABASE
+    const SUPABASE_URL = 'https://SEU_PROJETO.supabase.co'
+    const SUPABASE_KEY = 'SUA_CHAVE_ANON_AQUI'
+    
+    const { createClient } = supabase
+    const supabaseClient = createClient(SUPABASE_URL, SUPABASE_KEY)
 
-document.getElementById('formComprovante').addEventListener('submit', async (e) => {
-  e.preventDefault()
+    function abrirModalComprovante() {
+      document.getElementById('modalComprovante').classList.remove('hidden')
+    }
 
-  const deposito = {
-    id_redm: parseInt(document.getElementById('id_redm').value),
-    nick: document.getElementById('nick').value,
-    valor: parseFloat(document.getElementById('valor').value),
-    tipo: document.getElementById('tipo').value,
-    status: 'pendente'
-  }
+    function fecharModalComprovante() {
+      document.getElementById('modalComprovante').classList.add('hidden')
+      document.getElementById('formComprovante').reset()
+      document.getElementById('msgComprovante').textContent = ''
+    }
 
-  const { error } = await supabase.from('depositos_pendentes').insert([deposito])
+    function showToast(msg) {
+      const toast = document.getElementById('toast')
+      document.getElementById('toastMsg').textContent = msg
+      toast.classList.remove('hidden')
+      setTimeout(() => toast.classList.add('hidden'), 3000)
+    }
 
-  if (error) {
-    alert('Erro ao enviar: ' + error.message)
-  } else {
-    showToast('Comprovante enviado! Aguarde aprovação.')
-    fecharModalComprovante()
-    document.getElementById('formComprovante').reset()
-  }
-})
+    document.getElementById('formComprovante').addEventListener('submit', async (e) => {
+      e.preventDefault()
+      const btn = e.target.querySelector('button[type="submit"]')
+      btn.disabled = true
+      btn.textContent = 'ENVIANDO...'
 
-document.getElementById('modalComprovante').addEventListener('click', (e) => {
-  if (e.target.id === 'modalComprovante') fecharModalComprovante()
-})
-</script>
+      const deposito = {
+        id_redm: parseInt(document.getElementById('id_redm').value),
+        nick: document.getElementById('nick').value,
+        valor: parseFloat(document.getElementById('valor').value),
+        tipo: document.getElementById('tipo').value,
+        status: 'pendente'
+      }
 
+      const { error } = await supabaseClient.from('depositos_pendentes').insert([deposito])
+
+      if (error) {
+        document.getElementById('msgComprovante').innerHTML = `<span class="text-red-500">Erro: ${error.message}</span>`
+      } else {
+        showToast('Comprovante enviado! Aguarde aprovação.')
+        fecharModalComprovante()
+      }
+      btn.disabled = false
+      btn.textContent = 'ENVIAR'
+    })
+
+    // Carregar ranking
+    async function carregarRanking() {
+      const { data } = await supabaseClient.from('ranking_semanal').select('*').order('total', { ascending: false })
+      const ranking = document.getElementById('ranking')
+      ranking.innerHTML = data?.map((p, i) => `
+        <div class="bg-gray-900 rounded-lg p-4 flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center text-sm font-bold">${i+1}</div>
+            <div>
+              <p class="font-bold">${p.nick}</p>
+              <p class="text-xs text-gray-400">ID: ${p.id_redm}</p>
+            </div>
+          </div>
+          <div class="text-right">
+            <p class="text-xs text-gray-400">Total: <span class="text-green-500 font-bold">$${p.total?.toLocaleString()}</span></p>
+          </div>
+        </div>
+      `).join('') || '<p class="text-gray-400 text-center">Nenhum jogador ainda</p>'
+    }
+
+    carregarRanking()
+
+    // Fechar modal clicando fora
+    document.getElementById('modalComprovante').addEventListener('click', (e) => {
+      if (e.target.id === 'modalComprovante') fecharModalComprovante()
+    })
+  </script>
 </body>
 </html>
