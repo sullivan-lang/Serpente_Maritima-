@@ -1,4 +1,6 @@
-<html lang="pt-BR"><head>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SERPENTE MARÍTIMA - RedM Metas Semanais</title>
@@ -6,150 +8,90 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&display=swap');
-  
+
   :root {
     --bg-dark: #0a0a0a;
     --bg-card: #1a1a1a;
-    --bg-card-dark: #2a2a2a;
     --green-accent: #00a86b;
-    --green-glow: #00ff9d;
-    --gray: #4a4a4a;
-    --gray-light: #5a5a5a;
-    --gray-hover: #6a6a6a;
     --border: #2d2d2d;
     --text: #e0e0e0;
   }
-  
-  * {
-    font-family: 'Rajdhani', sans-serif;
-  }
-  
-  h1, h2, h3, .font-orbitron {
-    font-family: 'Orbitron', sans-serif;
-  }
-  
+
+    * { font-family: 'Rajdhani', sans-serif; }
+  h1, h2, h3,.font-orbitron { font-family: 'Orbitron', sans-serif; }
+
   body {
     background: linear-gradient(135deg, #0a0a0a 0%, #0d0d0d 50%, #0a0a0a 100%);
     min-height: 100vh;
-    position: relative;
     color: var(--text);
   }
-  
-  body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: 
-      radial-gradient(circle at 20% 50%, rgba(26, 26, 26, 0.4) 0%, transparent 50%),
-      radial-gradient(circle at 80% 80%, rgba(42, 42, 42, 0.2) 0%, transparent 50%);
-    pointer-events: none;
-    z-index: 0;
-  }
-  
-  .card-gamer {
+
+ .card-gamer {
     background: #1a1a1a;
     border: 1px solid var(--border);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6), 
-                inset 0 1px 0 rgba(255, 255, 255, 0.03);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
     transition: all 0.3s ease;
   }
-  
-  .card-gamer:hover {
+ .card-gamer:hover {
     transform: translateY(-4px);
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.7);
     border-color: #3a3a3a;
   }
-  
-  .card-no-deposit {
-    opacity: 0.6;
-  }
-  
-  .progress-bar {
+
+ .progress-bar {
     background: #0a0a0a;
     border: 1px solid #3a3a3a;
     overflow: hidden;
-    position: relative;
   }
-  
-  .progress-fill {
+ .progress-fill {
     background: #5a5a5a;
     height: 100%;
-    transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: width 0.6s ease;
   }
-  
-  .badge-meta {
+
+ .badge-meta {
     background: #4a4a4a;
     color: #e0e0e0;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
   }
-  
-  .badge-premium {
+ .badge-premium {
     background: linear-gradient(135deg, #5a5a5a 0%, #6a6a6a 100%);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
     color: #e0e0e0;
   }
-  
-  .badge-no-deposit {
-    background: #2a2a2a;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    color: #888;
-  }
-  
-  .btn-comprovante {
+
+ .btn-comprovante {
     background: linear-gradient(135deg, #3a3a3a 0%, #4a4a4a 100%);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
     transition: all 0.3s ease;
     color: #e0e0e0;
   }
-  
-  .btn-comprovante:hover {
+ .btn-comprovante:hover {
     background: linear-gradient(135deg, #4a4a4a 0%, #5a5a5a 100%);
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
   }
-  
-  .btn-primary {
-    background: linear-gradient(135deg, var(--gray) 0%, var(--gray-light) 100%);
+
+ .btn-primary {
+    background: linear-gradient(135deg, #4a4a4a 0%, #5a5a5a 100%);
     color: #e0e0e0;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease;
   }
-  
-  .btn-primary:hover {
-    background: linear-gradient(135deg, var(--gray-light) 0%, var(--gray-hover) 100%);
+ .btn-primary:hover {
+    background: linear-gradient(135deg, #5a5a5a 0%, #6a6a6a 100%);
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
   }
-  
-  .text-green {
-    color: var(--green-accent);
-  }
-  
-  .text-glow-accent {
-    text-shadow: 0 0 8px rgba(0, 168, 107, 0.3);
-  }
-  
-  .icon-box {
+
+ .text-green { color: var(--green-accent); }
+ .text-glow-accent { text-shadow: 0 0 8px rgba(0, 168, 107, 0.3); }
+ .icon-box {
     background: rgba(42, 42, 42, 0.6);
     border: 1px solid var(--green-accent);
   }
-  
-  .icon-accent {
-    color: var(--green-accent);
-  }
-  
-  #adminPanel {
-    display: none;
-  }
-  
-  #adminPanel.active {
-    display: block;
-  }
-  
-  .modal {
+ .icon-accent { color: var(--green-accent); }
+
+ .modal {
     display: none;
     position: fixed;
     top: 0;
@@ -163,1007 +105,361 @@
     justify-content: center;
     padding: 1rem;
   }
-  
-  .modal.active {
-    display: flex;
-  }
-  
-  .input-gamer {
+ .modal.active { display: flex; }
+
+ .input-gamer {
     background: #0a0a0a;
     border: 2px solid #2d2d2d;
     color: var(--text);
     transition: all 0.3s ease;
   }
-  
-  .input-gamer:focus {
+ .input-gamer:focus {
     outline: none;
     border-color: var(--green-accent);
     box-shadow: 0 0 0 3px rgba(0, 168, 107, 0.1);
   }
-  
-  .step-card {
+
+ .step-card {
     background: linear-gradient(145deg, rgba(26, 26, 26, 0.6) 0%, rgba(42, 42, 42, 0.6) 100%);
     border: 1px solid #2d2d2d;
     backdrop-filter: blur(10px);
   }
-  
-  .border-accent {
-    border-color: var(--green-accent);
-  }
-  
-  .calc-preview {
-    background: #0a0a0a;
-    border: 1px solid #2d2d2d;
+ .border-accent { border-color: var(--green-accent); }
+
+ .toast {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: #1a1a1a;
+    border: 2px solid var(--green-accent);
+    padding: 1rem 1.5rem;
     border-radius: 0.5rem;
-    padding: 0.75rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.8);
+    z-index: 2000;
+    transform: translateY(200px);
+    transition: transform 0.3s ease;
   }
-  
-  .stat-box {
-    background: #0a0a0a;
-    border: 1px solid #3a3a3a;
-  }
-  
-  .currency-value {
-    font-weight: 900;
-    font-family: 'Orbitron', sans-serif;
-  }
-  
-  @media (max-width: 768px) {
-    .stat-box {
-      padding: 0.75rem !important;
-    }
-  }
+ .toast.show { transform: translateY(0); }
 </style>
-<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.absolute{position:absolute}.relative{position:relative}.sticky{position:sticky}.top-0{top:0px}.left-0{left:0px}.z-10{z-index:10}.z-50{z-index:50}.mx-auto{margin-left:auto;margin-right:auto}.mb-1{margin-bottom:0.25rem}.mb-2{margin-bottom:0.5rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.mr-1{margin-right:0.25rem}.mr-2{margin-right:0.5rem}.mr-3{margin-right:0.75rem}.mt-1{margin-top:0.25rem}.mt-12{margin-top:3rem}.mt-3{margin-top:0.75rem}.mb-3{margin-bottom:0.75rem}.mt-4{margin-top:1rem}.block{display:block}.flex{display:flex}.grid{display:grid}.h-12{height:3rem}.h-14{height:3.5rem}.h-16{height:4rem}.h-8{height:2rem}.h-full{height:100%}.w-12{width:3rem}.w-14{width:3.5rem}.w-16{width:4rem}.w-full{width:100%}.min-w-0{min-width:0px}.max-w-7xl{max-width:80rem}.max-w-md{max-width:28rem}.flex-1{flex:1 1 0%}.flex-shrink-0{flex-shrink:0}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-start{align-items:flex-start}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-2{gap:0.5rem}.gap-3{gap:0.75rem}.gap-4{gap:1rem}.space-y-1 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.25rem * var(--tw-space-y-reverse))}.space-y-2 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.5rem * var(--tw-space-y-reverse))}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.truncate{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-xl{border-radius:0.75rem}.border{border-width:1px}.border-b{border-bottom-width:1px}.border-t{border-top-width:1px}.border-\[\#2d2d2d\]{--tw-border-opacity:1;border-color:rgb(45 45 45 / var(--tw-border-opacity, 1))}.border-\[\#3a3a3a\]{--tw-border-opacity:1;border-color:rgb(58 58 58 / var(--tw-border-opacity, 1))}.border-red-900\/50{border-color:rgb(127 29 29 / 0.5)}.bg-\[\#0a0a0a\]\/50{background-color:rgb(10 10 10 / 0.5)}.bg-\[\#0a0a0a\]\/90{background-color:rgb(10 10 10 / 0.9)}.bg-\[\#1a1a1a\]{--tw-bg-opacity:1;background-color:rgb(26 26 26 / var(--tw-bg-opacity, 1))}.bg-\[\#1a1a1a\]\/50{background-color:rgb(26 26 26 / 0.5)}.bg-\[\#2a2a2a\]{--tw-bg-opacity:1;background-color:rgb(42 42 42 / var(--tw-bg-opacity, 1))}.bg-red-900\/30{background-color:rgb(127 29 29 / 0.3)}.bg-gradient-to-br{background-image:linear-gradient(to bottom right, var(--tw-gradient-stops))}.from-\[\#2a2a2a\]{--tw-gradient-from:#2a2a2a var(--tw-gradient-from-position);--tw-gradient-to:rgb(42 42 42 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-\[\#3a3a3a\]{--tw-gradient-from:#3a3a3a var(--tw-gradient-from-position);--tw-gradient-to:rgb(58 58 58 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.to-\[\#3a3a3a\]{--tw-gradient-to:#3a3a3a var(--tw-gradient-to-position)}.to-\[\#4a4a4a\]{--tw-gradient-to:#4a4a4a var(--tw-gradient-to-position)}.p-12{padding:3rem}.p-6{padding:1.5rem}.p-4{padding:1rem}.p-5{padding:1.25rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.py-4{padding-top:1rem;padding-bottom:1rem}.py-6{padding-top:1.5rem;padding-bottom:1.5rem}.pt-1{padding-top:0.25rem}.pt-2{padding-top:0.5rem}.pt-4{padding-top:1rem}.text-center{text-align:center}.text-2xl{font-size:1.5rem;line-height:2rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-5xl{font-size:3rem;line-height:1}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-black{font-weight:900}.font-bold{font-weight:700}.font-semibold{font-weight:600}.tracking-wider{letter-spacing:0.05em}.text-\[\#e0e0e0\]{--tw-text-opacity:1;color:rgb(224 224 224 / var(--tw-text-opacity, 1))}.text-gray-300{--tw-text-opacity:1;color:rgb(209 213 219 / var(--tw-text-opacity, 1))}.text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175 / var(--tw-text-opacity, 1))}.text-gray-500{--tw-text-opacity:1;color:rgb(107 114 128 / var(--tw-text-opacity, 1))}.text-red-400{--tw-text-opacity:1;color:rgb(248 113 113 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.opacity-50{opacity:0.5}.backdrop-blur-md{--tw-backdrop-blur:blur(12px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.hover\:border-\[\#4a4a4a\]:hover{--tw-border-opacity:1;border-color:rgb(74 74 74 / var(--tw-border-opacity, 1))}.hover\:border-red-700:hover{--tw-border-opacity:1;border-color:rgb(185 28 28 / var(--tw-border-opacity, 1))}.hover\:bg-red-900\/50:hover{background-color:rgb(127 29 29 / 0.5)}@media (min-width: 640px){.sm\:flex-row{flex-direction:row}.sm\:items-center{align-items:center}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}}@media (min-width: 768px){.md\:mb-12{margin-bottom:3rem}.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.md\:flex-row{flex-direction:row}.md\:gap-6{gap:1.5rem}.md\:p-6{padding:1.5rem}.md\:py-10{padding-top:2.5rem;padding-bottom:2.5rem}.md\:text-3xl{font-size:1.875rem;line-height:2.25rem}.md\:text-5xl{font-size:3rem;line-height:1}.md\:text-2xl{font-size:1.5rem;line-height:2rem}.md\:text-xl{font-size:1.25rem;line-height:1.75rem}}@media (min-width: 1024px){.lg\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.lg\:grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}.lg\:px-8{padding-left:2rem;padding-right:2rem}}</style></head>
-<body>
-<div class="relative z-10">
-  <!-- Header -->
-  <header class="sticky top-0 z-50 backdrop-blur-md bg-[#0a0a0a]/90 border-b border-[#2d2d2d]">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-      <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+</head>
+<body class="p-4 md:p-6 lg:p-8">
+
+  <div id="toast" class="toast hidden">
+    <p class="font-bold text-green flex items-center gap-2">
+      <i class="fas fa-check-circle"></i>
+      <span id="toastMsg"></span>
+    </p>
+  </div>
+
+  <div class="max-w-7xl mx-auto relative z-10">
+
+    <header class="mb-8 md:mb-12">
+      <div class="card-gamer rounded-xl p-4 md:p-6 flex flex-col md:flex-row items-center justify-between gap-4">
         <div class="flex items-center gap-3">
-          <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-[#2a2a2a] to-[#3a3a3a] flex items-center justify-center border border-accent">
-            <i class="fas fa-anchor text-green text-2xl"></i>
+          <div class="icon-box w-12 h-12 rounded-lg flex items-center justify-center">
+            <i class="fas fa-hat-cowboy text-2xl icon-accent"></i>
           </div>
           <div>
-            <h1 class="text-2xl md:text-3xl font-black text-white font-orbitron">SERPENTE MARÍTIMA</h1>
-            <p class="text-xs text-gray-400 font-semibold tracking-wider">REDM CREW • TEMPORADA 1</p>
+            <h1 class="text-2xl md:text-3xl font-black font-orbitron text-white tracking-tight">
+              SERPENTE <span class="text-green">MARÍTIMA</span>
+            </h1>
+            <p class="text-xs text-gray-400 font-semibold tracking-wider">REDM • METAS SEMANAIS</p>
           </div>
         </div>
-        <div class="flex gap-2">
-          <button onclick="toggleAdmin()" class="px-4 py-2 rounded-lg bg-[#1a1a1a] border border-[#2d2d2d] hover:border-[#4a4a4a] transition-all text-sm font-bold text-[#e0e0e0]">
-            <i class="fas fa-cog mr-2 icon-accent"></i>ADMIN
-          </button>
-          <a href="https://discord.gg/" target="_blank" class="btn-comprovante px-6 py-2 rounded-lg font-bold text-sm flex items-center gap-2">
-            <i class="fab fa-discord text-lg"></i>
-            ENVIAR COMPROVANTE
-          </a>
-        </div>
-      </div>
-    </div>
-  </header>
 
-  <!-- Admin Panel -->
-  <div id="adminPanel" class="bg-[#1a1a1a] border-b border-[#2d2d2d]">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-      <div class="flex flex-col gap-3">
-        <p class="text-white font-bold"><i class="fas fa-shield-halved mr-2 icon-accent"></i>PAINEL ADMINISTRATIVO</p>
-        <div class="flex flex-wrap gap-2">
-          <button onclick="cadastrarMembro()" class="btn-primary px-4 py-2 rounded-lg font-bold text-sm">
-            <i class="fas fa-user-plus mr-2"></i>CADASTRAR MEMBRO
-          </button>
-          <button onclick="addPlayer()" class="px-4 py-2 rounded-lg bg-[#2a2a2a] border border-[#3a3a3a] hover:border-[#4a4a4a] transition-all font-bold text-sm text-[#e0e0e0]">
-            <i class="fas fa-coins mr-2 icon-accent"></i>ATUALIZAR DEPÓSITO
-          </button>
-          <button onclick="configTaxas()" class="px-4 py-2 rounded-lg bg-[#2a2a2a] border border-[#3a3a3a] hover:border-[#4a4a4a] transition-all font-bold text-sm text-[#e0e0e0]">
-            <i class="fas fa-percentage mr-2 icon-accent"></i>CONFIGURAR TAXAS
-          </button>
-          <button onclick="resetWeek()" class="px-4 py-2 rounded-lg bg-red-900/30 hover:bg-red-900/50 border border-red-900/50 hover:border-red-700 transition-all font-bold text-sm text-red-400">
-            <i class="fas fa-trash mr-2"></i>RESETAR SEMANA
-          </button>
-          <button onclick="exportData()" class="px-4 py-2 rounded-lg bg-[#1a1a1a] border border-[#2d2d2d] hover:border-[#4a4a4a] transition-all font-bold text-sm text-[#e0e0e0]">
-            <i class="fas fa-download mr-2 icon-accent"></i>EXPORTAR
-          </button>
-        </div>
+        <button onclick="abrirModalComprovante()" class="btn-comprovante px-6 py-2 rounded-lg font-bold text-sm flex items-center gap-2 w-full md:w-auto justify-center">
+          <i class="fas fa-upload text-lg"></i>
+          ENVIAR COMPROVANTE
+        </button>
       </div>
-    </div>
-  </div>
+    </header>
 
-  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-10">
-    
-    <!-- Metas da Semana -->
     <section class="mb-8 md:mb-12">
-      <div class="mb-6">
-        <h2 class="text-2xl md:text-3xl font-black text-white font-orbitron mb-2">
-          <i class="fas fa-bullseye mr-3 icon-accent"></i>METAS DA SEMANA
-        </h2>
-        <p class="text-gray-500 text-sm">Semana de 22/06 - 28/06 • Reset toda segunda-feira</p>
-        <div class="mt-3 flex flex-wrap items-center gap-2 text-xs">
-          <span class="px-3 py-1 bg-[#1a1a1a] border border-[#2d2d2d] rounded-lg text-gray-300">
-            <i class="fas fa-coins icon-accent mr-1"></i>1 moeda = <span class="text-white font-bold">$4 sujo</span>
-          </span>
-          <span class="px-3 py-1 bg-[#1a1a1a] border border-[#2d2d2d] rounded-lg text-gray-300">
-            <i class="fas fa-percentage icon-accent mr-1"></i><span class="text-white font-bold">Dinheiro Limpo: <span id="configLimpoDisplay">85.00%</span></span>
-          </span>
-          <span class="px-3 py-1 bg-[#1a1a1a] border border-[#2d2d2d] rounded-lg text-gray-300">
-            <i class="fas fa-money-bill icon-accent mr-1"></i><span class="text-white font-bold">Contribuição: <span id="configContribDisplay">15.00%</span></span>
-          </span>
-        </div>
-      </div>
-      
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
-        <!-- Meta Mínima -->
-        <div class="card-gamer rounded-xl p-6">
-          <div class="flex items-start justify-between mb-4">
-            <div>
-              <p class="text-gray-500 text-xs font-bold mb-1 tracking-wider">META MÍNIMA</p>
-              <h3 class="text-4xl md:text-5xl font-black text-white font-orbitron">1,000</h3>
-              <p class="text-gray-400 text-sm mt-1">MOEDAS DEPOSITADAS</p>
-            </div>
-            <div class="icon-box w-14 h-14 rounded-xl flex items-center justify-center">
-              <i class="fas fa-coins icon-accent text-2xl"></i>
-            </div>
+      <div class="card-gamer rounded-xl p-6 md:p-8">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="icon-box w-10 h-10 rounded-lg flex items-center justify-center">
+            <i class="fas fa-bullseye text-xl icon-accent"></i>
           </div>
-          <div class="space-y-2 pt-4 border-t border-[#2d2d2d]">
-            <div class="flex items-center gap-2 text-sm">
-              <i class="fas fa-check-circle icon-accent"></i>
-              <span class="text-gray-300">Valor bruto: <span class="text-white font-bold">US$ 4,000.00 sujo</span></span>
+          <h2 class="text-xl md:text-2xl font-black text-white font-orbitron">PROGRESSO GERAL DA SEMANA</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+          <div class="bg-[#0a0a0a] rounded-lg p-4 border border-[#3a3a3a]">
+            <p class="text-xs text-gray-400 font-bold mb-2 tracking-wider">DINHEIRO LIMPO</p>
+            <div class="flex items-end justify-between mb-2">
+              <span class="text-3xl md:text-4xl font-black text-white font-orbitron">$66.200</span>
+              <span class="text-sm text-gray-400 font-bold">/ $66.200</span>
             </div>
-            <div class="flex items-center gap-2 text-sm">
-              <i class="fas fa-check-circle icon-accent"></i>
-              <span class="text-gray-300">Permanece no grupo</span>
+            <div class="progress-bar h-3 rounded-full">
+              <div class="progress-fill rounded-full" style="width: 100%"></div>
             </div>
+            <p class="text-xs text-green font-bold mt-2">100% CONCLUÍDO</p>
+          </div>
+
+          <div class="bg-[#0a0a0a] rounded-lg p-4 border border-[#3a3a3a]">
+            <p class="text-xs text-gray-400 font-bold mb-2 tracking-wider">DINHEIRO SUJO</p>
+            <div class="flex items-end justify-between mb-2">
+              <span class="text-3xl md:text-4xl font-black text-white font-orbitron">$35.600</span>
+              <span class="text-sm text-gray-400 font-bold">/ $39.900</span>
+            </div>
+            <div class="progress-bar h-3 rounded-full">
+              <div class="progress-fill rounded-full" style="width: 89.2%"></div>
+            </div>
+            <p class="text-xs text-gray-300 font-bold mt-2">89.2% CONCLUÍDO</p>
           </div>
         </div>
 
-        <!-- Meta Premium -->
-        <div class="card-gamer rounded-xl p-6">
-          <div class="flex items-start justify-between mb-4">
-            <div>
-              <p class="text-gray-500 text-xs font-bold mb-1 tracking-wider">META PREMIUM</p>
-              <h3 class="text-4xl md:text-5xl font-black text-white font-orbitron">2,000+</h3>
-              <p class="text-gray-400 text-sm mt-1">MOEDAS DEPOSITADAS</p>
-            </div>
-            <div class="icon-box w-14 h-14 rounded-xl flex items-center justify-center">
-              <i class="fas fa-crown icon-accent text-2xl"></i>
-            </div>
+        <div class="bg-[#0a0a0a] rounded-lg p-4 border border-[#3a3a3a]">
+          <p class="text-xs text-gray-400 font-bold mb-2 tracking-wider">META GERAL</p>
+          <div class="flex items-end justify-between mb-2">
+            <span class="text-3xl md:text-4xl font-black text-white font-orbitron">$101.800</span>
+            <span class="text-sm text-gray-400 font-bold">/ $106.100</span>
           </div>
-          <div class="space-y-2 pt-4 border-t border-[#2d2d2d]">
-            <div class="flex items-center gap-2 text-sm">
-              <i class="fas fa-star icon-accent"></i>
-              <span class="text-gray-300 font-bold">Ganha premiação da semana!</span>
-            </div>
-            <div class="flex items-center gap-2 text-sm">
-              <i class="fas fa-check-circle icon-accent"></i>
-              <span class="text-gray-300">Valor bruto: <span class="text-white font-bold">US$ 8,000.00+ sujo</span></span>
-            </div>
+          <div class="progress-bar h-4 rounded-full">
+            <div class="progress-fill rounded-full" style="width: 95.9%"></div>
           </div>
+          <p class="text-xs text-gray-300 font-bold mt-2">95.9% CONCLUÍDO</p>
         </div>
       </div>
     </section>
 
-    <!-- Ranking da Semana -->
     <section class="mb-8 md:mb-12">
-      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 gap-3">
+      <div class="flex items-center gap-3 mb-6">
+        <div class="icon-box w-10 h-10 rounded-lg flex items-center justify-center">
+          <i class="fas fa-trophy text-xl icon-accent"></i>
+        </div>
+        <h2 class="text-xl md:text-2xl font-black text-white font-orbitron">RANKING SEMANAL</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+
+        <div class="card-gamer rounded-xl p-5 relative overflow-hidden">
+          <div class="absolute top-3 right-3">
+            <div class="badge-premium w-10 h-10 rounded-full flex items-center justify-center">
+              <span class="font-black text-sm">#1</span>
+            </div>
+          </div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="icon-box w-14 h-14 rounded-full flex items-center justify-center">
+              <i class="fas fa-user-circle text-3xl icon-accent"></i>
+            </div>
+            <div>
+              <h3 class="text-lg font-black text-white">Pipoka Moura</h3>
+              <p class="text-xs text-gray-500 font-semibold">ID: 1011</p>
+            </div>
+          </div>
+          <div class="space-y-2 mb-4">
+            <div class="flex justify-between text-sm">
+              <span class="text-gray-400 font-semibold">Dinheiro Limpo:</span>
+              <span class="text-white font-bold">$20.000</span>
+            </div>
+            <div class="flex justify-between text-sm">
+              <span class="text-gray-400 font-semibold">Dinheiro Sujo:</span>
+              <span class="text-white font-bold">$14.000</span>
+            </div>
+            <div class="flex justify-between text-sm pt-2 border-t border-[#2d2d2d]">
+              <span class="text-gray-300 font-bold">Total:</span>
+              <span class="text-green font-black text-lg">$34.000</span>
+            </div>
+          <div class="progress-bar h-2 rounded-full">
+            <div class="progress-fill rounded-full" style="width: 100%"></div>
+          </div>
+        </div>
+
+        <div class="card-gamer rounded-xl p-5 relative overflow-hidden">
+          <div class="absolute top-3 right-3">
+            <div class="badge-meta w-10 h-10 rounded-full flex items-center justify-center">
+              <span class="font-black text-sm">#2</span>
+            </div>
+          </div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="icon-box w-14 h-14 rounded-full flex items-center justify-center">
+              <i class="fas fa-user-circle text-3xl icon-accent"></i>
+            </div>
+            <div>
+              <h3 class="text-lg font-black text-white">Carlos Silva</h3>
+              <p class="text-xs text-gray-500 font-semibold">ID: 1012</p>
+            </div>
+          </div>
+          <div class="space-y-2 mb-4">
+            <div class="flex justify-between text-sm">
+              <span class="text-gray-400 font-semibold">Dinheiro Limpo:</span>
+              <span class="text-white font-bold">$18.500</span>
+            </div>
+            <div class="flex justify-between text-sm">
+              <span class="text-gray-400 font-semibold">Dinheiro Sujo:</span>
+              <span class="text-white font-bold">$11.200</span>
+            </div>
+            <div class="flex justify-between text-sm pt-2 border-t border-[#2d2d2d]">
+              <span class="text-gray-300 font-bold">Total:</span>
+              <span class="text-green font-black text-lg">$29.700</span>
+            </div>
+          </div>
+          <div class="progress-bar h-2 rounded-full">
+            <div class="progress-fill rounded-full" style="width: 87.3%"></div>
+          </div>
+        </div>
+
+        <div class="card-gamer rounded-xl p-5 relative overflow-hidden">
+          <div class="absolute top-3 right-3">
+            <div class="badge-meta w-10 h-10 rounded-full flex items-center justify-center">
+              <span class="font-black text-sm">#3</span>
+            </div>
+          </div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="icon-box w-14 h-14 rounded-full flex items-center justify-center">
+              <i class="fas fa-user-circle text-3xl icon-accent"></i>
+            </div>
+            <div>
+              <h3 class="text-lg font-black text-white">Ana Costa</h3>
+              <p class="text-xs text-gray-500 font-semibold">ID: 1013</p>
+            </div>
+          </div>
+          <div class="space-y-2 mb-4">
+            <div class="flex justify-between text-sm">
+              <span class="text-gray-400 font-semibold">Dinheiro Limpo:</span>
+              <span class="text-white font-bold">$15.200</span>
+            </div>
+            <div class="flex justify-between text-sm">
+              <span class="text-gray-400 font-semibold">Dinheiro Sujo:</span>
+              <span class="text-white font-bold">$8.400</span>
+            </div>
+            <div class="flex justify-between text-sm pt-2 border-t border-[#2d2d2d]">
+              <span class="text-gray-300 font-bold">Total:</span>
+              <span class="text-green font-black text-lg">$23.600</span>
+            </div>
+          </div>
+          <div class="progress-bar h-2 rounded-full">
+            <div class="progress-fill rounded-full" style="width: 69.4%"></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="mb-8 md:mb-12">
+      <div class="flex items-center gap-3 mb-6">
+        <div class="icon-box w-10 h-10 rounded-lg flex items-center justify-center">
+          <i class="fas fa-question-circle text-xl icon-accent"></i>
+        </div>
+        <h2 class="text-xl md:text-2xl font-black text-white font-orbitron">COMO FUNCIONA</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+        <div class="step-card rounded-xl p-6">
+          <div class="icon-box w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+            <span class="text-2xl font-black icon-accent">1</span>
+          </div>
+          <h3 class="text-lg font-black text-white mb-2">FAÇA SEU DEPÓSITO</h3>
+          <p class="text-sm text-gray-400">Deposite dinheiro limpo ou sujo no cofre da gangue durante a semana.</p>
+        </div>
+
+        <div class="step-card rounded-xl p-6">
+          <div class="icon-box w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+            <span class="text-2xl font-black icon-accent">2</span>
+          </div>
+          <h3 class="text-lg font-black text-white mb-2">ENVIE O COMPROVANTE</h3>
+          <p class="text-sm text-gray-400">Clique em ENVIAR COMPROVANTE e preencha com seus dados e valor.</p>
+        </div>
+
+        <div class="step-card rounded-xl p-6">
+          <div class="icon-box w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+            <span class="text-2xl font-black icon-accent">3</span>
+          </div>
+          <h3 class="text-lg font-black text-white mb-2">AGUARDE APROVAÇÃO</h3>
+          <p class="text-sm text-gray-400">Admin valida seu depósito e você aparece no ranking.</p>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- MODAL COMPROVANTE -->
+  <div id="modalComprovante" class="modal">
+    <div class="card-gamer rounded-xl p-6 w-full max-w-md">
+      <h3 class="text-2xl font-black text-white mb-4 font-orbitron">ENVIAR COMPROVANTE</h3>
+      <form id="formComprovante" class="space-y-4">
         <div>
-          <h2 class="text-2xl md:text-3xl font-black text-white font-orbitron mb-2">
-            <i class="fas fa-trophy mr-3 icon-accent"></i>RANKING DA SEMANA
-          </h2>
-          <p class="text-gray-500 text-sm">Atualizado em tempo real • Membros com 0 moedas também aparecem</p>
+          <label class="block text-sm font-bold text-gray-400 mb-2">ID REDM</label>
+          <input type="number" id="id_redm" class="input-gamer w-full px-4 py-3 rounded-lg" placeholder="Ex: 1011" required>
         </div>
-        <div class="flex items-center gap-2 bg-[#1a1a1a]/50 px-4 py-2 rounded-lg border border-[#2d2d2d]">
-          <i class="fas fa-users icon-accent"></i>
-          <span class="font-bold text-sm text-[#e0e0e0]"><span id="totalPlayers">3</span> MEMBROS CADASTRADOS</span>
+        <div>
+          <label class="block text-sm font-bold text-gray-400 mb-2">NICK NO JOGO</label>
+          <input type="text" id="nick" class="input-gamer w-full px-4 py-3 rounded-lg" placeholder="Ex: Pipoka Moura" required>
         </div>
-      </div>
-
-      <div id="rankingList" class="space-y-4">
-        <div class="card-gamer rounded-xl p-5 md:p-6">
-          <!-- Linha 1: Nome | ID + Badge -->
-          <div class="flex items-center justify-between mb-4 gap-3 flex-wrap">
-            <div class="flex items-center min-w-0 flex-1">
-              <i class="fas fa-check-circle text-green text-xl mr-2"></i>
-              <div class="min-w-0">
-                <h3 class="text-lg md:text-xl font-black text-white truncate">Pipoka Moura | ID: 1011</h3>
-              </div>
-            </div>
-            <div class="flex-shrink-0">
-              <span class="badge-meta px-3 py-1 rounded-full text-xs font-black"><i class="fas fa-check mr-1"></i>META MÍNIMA ATINGIDA</span>
-            </div>
-          </div>
-          
-          <!-- Linha 2: Barra de Progresso -->
-          <div class="mb-4">
-            <div class="relative">
-              <div class="progress-bar h-8 rounded-lg flex items-center justify-center">
-                <div class="progress-fill absolute left-0 top-0 h-full rounded-lg" style="width: 97.2%"></div>
-                <span class="relative z-10 text-sm font-black text-white">1.944/2000 moedas (97%)</span>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Linha 3: Grid 2 colunas - Dinheiro Sujo e Limpo -->
-          <div class="grid grid-cols-2 gap-3 mb-3">
-            <div class="stat-box rounded-lg p-4">
-              <div class="flex items-center gap-2 mb-2">
-                <i class="fas fa-sack-dollar text-red-400 text-sm"></i>
-                <span class="text-xs text-gray-500 font-bold">DINHEIRO SUJO</span>
-              </div>
-              <p class="text-xl md:text-2xl currency-value text-white">US$ 7,776.00</p>
-            </div>
-            <div class="stat-box rounded-lg p-4">
-              <div class="flex items-center gap-2 mb-2">
-                <i class="fas fa-money-bill icon-accent text-sm"></i>
-                <span class="text-xs text-gray-500 font-bold">DINHEIRO LIMPO</span>
-              </div>
-              <p class="text-xl md:text-2xl currency-value text-white">US$ 6,609.60</p>
-            </div>
-          </div>
-          
-          <!-- Linha 4: Box centralizado - Contribuição -->
-          <div class="stat-box rounded-lg p-4">
-            <div class="flex items-center justify-center gap-2 mb-2">
-              <i class="fas fa-hand-holding-dollar icon-accent text-sm"></i>
-              <span class="text-xs text-gray-500 font-bold">CONTRIBUIÇÃO</span>
-            </div>
-            <p class="text-2xl md:text-3xl currency-value text-green text-center">US$ 1,166.40</p>
-          </div>
-          
-          <!-- Admin Actions -->
-          <div class="flex gap-2 mt-4 pt-4 border-t border-[#2d2d2d]">
-            <button onclick="editPlayer(0)" class="flex-1 py-2 rounded-lg bg-[#1a1a1a] border border-[#2d2d2d] hover:border-[#4a4a4a] transition-all text-sm font-bold text-[#e0e0e0]">
-              <i class="fas fa-edit icon-accent mr-2"></i>EDITAR
-            </button>
-            <button onclick="deletePlayer(0)" class="px-4 py-2 rounded-lg bg-red-900/30 border border-red-900/50 hover:border-red-700 transition-all text-sm font-bold">
-              <i class="fas fa-trash text-red-400"></i>
-            </button>
-          </div>
+        <div>
+          <label class="block text-sm font-bold text-gray-400 mb-2">VALOR EM $</label>
+          <input type="number" id="valor" class="input-gamer w-full px-4 py-3 rounded-lg" placeholder="Ex: 5000" required>
         </div>
-      
-        <div class="card-gamer rounded-xl p-5 md:p-6">
-          <!-- Linha 1: Nome | ID + Badge -->
-          <div class="flex items-center justify-between mb-4 gap-3 flex-wrap">
-            <div class="flex items-center min-w-0 flex-1">
-              <i class="fas fa-check-circle text-green text-xl mr-2"></i>
-              <div class="min-w-0">
-                <h3 class="text-lg md:text-xl font-black text-white truncate">João Silva | ID: 2045</h3>
-              </div>
-            </div>
-            <div class="flex-shrink-0">
-              <span class="badge-meta px-3 py-1 rounded-full text-xs font-black"><i class="fas fa-check mr-1"></i>META MÍNIMA ATINGIDA</span>
-            </div>
-          </div>
-          
-          <!-- Linha 2: Barra de Progresso -->
-          <div class="mb-4">
-            <div class="relative">
-              <div class="progress-bar h-8 rounded-lg flex items-center justify-center">
-                <div class="progress-fill absolute left-0 top-0 h-full rounded-lg" style="width: 60%"></div>
-                <span class="relative z-10 text-sm font-black text-white">1.200/2000 moedas (60%)</span>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Linha 3: Grid 2 colunas - Dinheiro Sujo e Limpo -->
-          <div class="grid grid-cols-2 gap-3 mb-3">
-            <div class="stat-box rounded-lg p-4">
-              <div class="flex items-center gap-2 mb-2">
-                <i class="fas fa-sack-dollar text-red-400 text-sm"></i>
-                <span class="text-xs text-gray-500 font-bold">DINHEIRO SUJO</span>
-              </div>
-              <p class="text-xl md:text-2xl currency-value text-white">US$ 4,800.00</p>
-            </div>
-            <div class="stat-box rounded-lg p-4">
-              <div class="flex items-center gap-2 mb-2">
-                <i class="fas fa-money-bill icon-accent text-sm"></i>
-                <span class="text-xs text-gray-500 font-bold">DINHEIRO LIMPO</span>
-              </div>
-              <p class="text-xl md:text-2xl currency-value text-white">US$ 4,080.00</p>
-            </div>
-          </div>
-          
-          <!-- Linha 4: Box centralizado - Contribuição -->
-          <div class="stat-box rounded-lg p-4">
-            <div class="flex items-center justify-center gap-2 mb-2">
-              <i class="fas fa-hand-holding-dollar icon-accent text-sm"></i>
-              <span class="text-xs text-gray-500 font-bold">CONTRIBUIÇÃO</span>
-            </div>
-            <p class="text-2xl md:text-3xl currency-value text-green text-center">US$ 720.00</p>
-          </div>
-          
-          <!-- Admin Actions -->
-          <div class="flex gap-2 mt-4 pt-4 border-t border-[#2d2d2d]">
-            <button onclick="editPlayer(1)" class="flex-1 py-2 rounded-lg bg-[#1a1a1a] border border-[#2d2d2d] hover:border-[#4a4a4a] transition-all text-sm font-bold text-[#e0e0e0]">
-              <i class="fas fa-edit icon-accent mr-2"></i>EDITAR
-            </button>
-            <button onclick="deletePlayer(1)" class="px-4 py-2 rounded-lg bg-red-900/30 border border-red-900/50 hover:border-red-700 transition-all text-sm font-bold">
-              <i class="fas fa-trash text-red-400"></i>
-            </button>
-          </div>
+        <div>
+          <label class="block text-sm font-bold text-gray-400 mb-2">TIPO</label>
+          <select id="tipo" class="input-gamer w-full px-4 py-3 rounded-lg">
+            <option value="sujo">Dinheiro Sujo</option>
+            <option value="limpo">Dinheiro Limpo</option>
+          </select>
         </div>
-      
-        <div class="card-gamer card-no-deposit rounded-xl p-5 md:p-6">
-          <!-- Linha 1: Nome | ID + Badge -->
-          <div class="flex items-center justify-between mb-4 gap-3 flex-wrap">
-            <div class="flex items-center min-w-0 flex-1">
-              
-              <div class="min-w-0">
-                <h3 class="text-lg md:text-xl font-black text-white truncate">Maria Costa | ID: 3087</h3>
-              </div>
-            </div>
-            <div class="flex-shrink-0">
-              <span class="badge-no-deposit px-3 py-1 rounded-full text-xs font-black"><i class="fas fa-times-circle mr-1"></i>SEM DEPÓSITO</span>
-            </div>
-          </div>
-          
-          <!-- Linha 2: Barra de Progresso -->
-          <div class="mb-4">
-            <div class="relative">
-              <div class="progress-bar h-8 rounded-lg flex items-center justify-center">
-                <div class="progress-fill absolute left-0 top-0 h-full rounded-lg" style="width: 0%"></div>
-                <span class="relative z-10 text-sm font-black text-white">0/2000 moedas (0%)</span>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Linha 3: Grid 2 colunas - Dinheiro Sujo e Limpo -->
-          <div class="grid grid-cols-2 gap-3 mb-3">
-            <div class="stat-box rounded-lg p-4">
-              <div class="flex items-center gap-2 mb-2">
-                <i class="fas fa-sack-dollar text-red-400 text-sm"></i>
-                <span class="text-xs text-gray-500 font-bold">DINHEIRO SUJO</span>
-              </div>
-              <p class="text-xl md:text-2xl currency-value text-white">US$ 0.00</p>
-            </div>
-            <div class="stat-box rounded-lg p-4">
-              <div class="flex items-center gap-2 mb-2">
-                <i class="fas fa-money-bill icon-accent text-sm"></i>
-                <span class="text-xs text-gray-500 font-bold">DINHEIRO LIMPO</span>
-              </div>
-              <p class="text-xl md:text-2xl currency-value text-white">US$ 0.00</p>
-            </div>
-          </div>
-          
-          <!-- Linha 4: Box centralizado - Contribuição -->
-          <div class="stat-box rounded-lg p-4">
-            <div class="flex items-center justify-center gap-2 mb-2">
-              <i class="fas fa-hand-holding-dollar icon-accent text-sm"></i>
-              <span class="text-xs text-gray-500 font-bold">CONTRIBUIÇÃO</span>
-            </div>
-            <p class="text-2xl md:text-3xl currency-value text-green text-center">US$ 0.00</p>
-          </div>
-          
-          <!-- Admin Actions -->
-          <div class="flex gap-2 mt-4 pt-4 border-t border-[#2d2d2d]">
-            <button onclick="editPlayer(2)" class="flex-1 py-2 rounded-lg bg-[#1a1a1a] border border-[#2d2d2d] hover:border-[#4a4a4a] transition-all text-sm font-bold text-[#e0e0e0]">
-              <i class="fas fa-edit icon-accent mr-2"></i>EDITAR
-            </button>
-            <button onclick="deletePlayer(2)" class="px-4 py-2 rounded-lg bg-red-900/30 border border-red-900/50 hover:border-red-700 transition-all text-sm font-bold">
-              <i class="fas fa-trash text-red-400"></i>
-            </button>
-          </div>
+        <div class="flex gap-3 pt-2">
+          <button type="submit" class="btn-primary flex-1 py-3 rounded-lg font-bold">
+            <i class="fas fa-paper-plane mr-2"></i>ENVIAR
+          </button>
+          <button type="button" onclick="fecharModalComprovante()" class="flex-1 py-3 rounded-lg font-bold bg-[#1a1a1a] border border-[#2d2d2d] hover:border-red-700 transition-all text-[#e0e0e0]">
+            CANCELAR
+          </button>
         </div>
-      </div>
-
-      <div id="emptyState" class="card-gamer rounded-xl p-12 text-center" style="display: none;">
-        <i class="fas fa-inbox icon-accent text-5xl mb-4 opacity-50"></i>
-        <h3 class="text-xl font-bold text-white mb-2">NENHUM MEMBRO CADASTRADO</h3>
-        <p class="text-gray-500 text-sm">Use o painel admin para cadastrar membros do grupo.</p>
-      </div>
-    </section>
-
-    <!-- Como Funciona -->
-    <section>
-      <h2 class="text-2xl md:text-3xl font-black text-white font-orbitron mb-6">
-        <i class="fas fa-info-circle mr-3 icon-accent"></i>COMO FUNCIONA
-      </h2>
-      
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div class="step-card rounded-xl p-6 text-center">
-          <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-[#3a3a3a] to-[#4a4a4a] flex items-center justify-center border border-accent">
-            <span class="text-white text-2xl font-black font-orbitron">1</span>
-          </div>
-          <h3 class="text-white font-bold text-lg mb-2">FARMAR</h3>
-          <p class="text-gray-400 text-sm">Faça atividades no RedM e junte dinheiro sujo</p>
-        </div>
-
-        <div class="step-card rounded-xl p-6 text-center">
-          <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-[#3a3a3a] to-[#4a4a4a] flex items-center justify-center border border-accent">
-            <span class="text-white text-2xl font-black font-orbitron">2</span>
-          </div>
-          <h3 class="text-white font-bold text-lg mb-2">DEPOSITAR</h3>
-          <p class="text-gray-400 text-sm">Deposite as moedas no cofre • Cada moeda vale $4 sujo</p>
-        </div>
-
-        <div class="step-card rounded-xl p-6 text-center">
-          <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-[#3a3a3a] to-[#4a4a4a] flex items-center justify-center border border-accent">
-            <span class="text-white text-2xl font-black font-orbitron">3</span>
-          </div>
-          <h3 class="text-white font-bold text-lg mb-2">PRINT</h3>
-          <p class="text-gray-400 text-sm">Tire print e mande no canal #comprovantes</p>
-        </div>
-
-        <div class="step-card rounded-xl p-6 text-center">
-          <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-[#3a3a3a] to-[#4a4a4a] flex items-center justify-center border border-accent">
-            <span class="text-white text-2xl font-black font-orbitron">4</span>
-          </div>
-          <h3 class="text-white font-bold text-lg mb-2">APROVAÇÃO</h3>
-          <p class="text-gray-400 text-sm">Admin valida e atualiza • Sistema calcula automático</p>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- Footer -->
-  <footer class="mt-12 border-t border-[#2d2d2d] bg-[#0a0a0a]/50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-      <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-500">
-        <p>© 2024 SERPENTE MARÍTIMA • Sistema de Metas RedM</p>
-        <p>Desenvolvido para GitHub Pages • <span class="text-green">Cálculo automático ativo</span></p>
-      </div>
+      </form>
     </div>
-  </footer>
-</div>
-
-<!-- Modal Add/Edit Player -->
-<div id="playerModal" class="modal">
-  <div class="card-gamer rounded-xl p-6 w-full max-w-md">
-    <h3 class="text-2xl font-black text-white mb-4 font-orbitron" id="modalTitle">ATUALIZAR DEPÓSITO</h3>
-    <form id="playerForm" class="space-y-4">
-      <div>
-        <label class="block text-sm font-bold text-gray-400 mb-2">NOME DO JOGADOR</label>
-        <input type="text" id="playerName" class="input-gamer w-full px-4 py-3 rounded-lg" placeholder="Ex: CasanovaNeriovski" required="">
-      </div>
-      <div>
-        <label class="block text-sm font-bold text-gray-400 mb-2">ID</label>
-        <input type="number" id="playerId" class="input-gamer w-full px-4 py-3 rounded-lg" placeholder="Ex: 3626" required="">
-      </div>
-      <div>
-        <label class="block text-sm font-bold text-gray-400 mb-2">QUANTIDADE DE MOEDAS</label>
-        <input type="number" id="playerCoins" class="input-gamer w-full px-4 py-3 rounded-lg" placeholder="Ex: 1944" min="0" required="">
-        <p class="text-xs text-gray-500 mt-1"><i class="fas fa-info-circle icon-accent mr-1"></i>1 moeda = US$ 4.00 sujo • Taxa configurável</p>
-      </div>
-      
-      <div class="calc-preview">
-        <p class="text-xs font-bold text-gray-400 mb-2">PRÉVIA DO CÁLCULO</p>
-        <div class="space-y-1 text-sm">
-          <div class="flex justify-between">
-            <span class="text-gray-400">Dinheiro Sujo:</span>
-            <span class="text-white font-bold font-orbitron" id="previewSujo">US$ 0.00</span>
-          </div>
-          <div class="flex justify-between">
-            <span class="text-gray-400">Dinheiro Limpo:</span>
-            <span class="text-green font-bold font-orbitron" id="previewLimpo">US$ 0.00</span>
-          </div>
-          <div class="flex justify-between pt-1 border-t border-[#2d2d2d]">
-            <span class="text-gray-400">Contribuição:</span>
-            <span class="text-white font-bold font-orbitron" id="previewContrib">US$ 0.00</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="flex gap-3 pt-2">
-        <button type="submit" class="btn-primary flex-1 py-3 rounded-lg font-bold">
-          <i class="fas fa-save mr-2"></i>SALVAR
-        </button>
-        <button type="button" onclick="closeModal()" class="flex-1 py-3 rounded-lg font-bold bg-[#1a1a1a] border border-[#2d2d2d] hover:border-red-700 transition-all text-[#e0e0e0]">
-          CANCELAR
-        </button>
-      </div>
-    </form>
   </div>
-</div>
 
-<!-- Modal Cadastrar Membro -->
-<div id="memberModal" class="modal">
-  <div class="card-gamer rounded-xl p-6 w-full max-w-md">
-    <h3 class="text-2xl font-black text-white mb-4 font-orbitron">CADASTRAR MEMBRO</h3>
-    <form id="memberForm" class="space-y-4">
-      <div>
-        <label class="block text-sm font-bold text-gray-400 mb-2">NOME DO JOGADOR</label>
-        <input type="text" id="memberName" class="input-gamer w-full px-4 py-3 rounded-lg" placeholder="Ex: CasanovaNeriovski" required="">
-      </div>
-      <div>
-        <label class="block text-sm font-bold text-gray-400 mb-2">ID</label>
-        <input type="number" id="memberId" class="input-gamer w-full px-4 py-3 rounded-lg" placeholder="Ex: 3626" required="">
-      </div>
-      <p class="text-xs text-gray-500"><i class="fas fa-info-circle icon-accent mr-1"></i>O membro será cadastrado com 0 moedas e todos os valores serão calculados automaticamente.</p>
-      <div class="flex gap-3 pt-2">
-        <button type="submit" class="btn-primary flex-1 py-3 rounded-lg font-bold">
-          <i class="fas fa-user-plus mr-2"></i>CADASTRAR
-        </button>
-        <button type="button" onclick="closeMemberModal()" class="flex-1 py-3 rounded-lg font-bold bg-[#1a1a1a] border border-[#2d2d2d] hover:border-red-700 transition-all text-[#e0e0e0]">
-          CANCELAR
-        </button>
-      </div>
-    </form>
-  </div>
-</div>
-
-<!-- Modal Configurar Taxas -->
-<div id="taxasModal" class="modal">
-  <div class="card-gamer rounded-xl p-6 w-full max-w-md">
-    <h3 class="text-2xl font-black text-white mb-4 font-orbitron">CONFIGURAR TAXAS</h3>
-    <form id="taxasForm" class="space-y-4">
-      <div>
-        <label class="block text-sm font-bold text-gray-400 mb-2">VALOR DA MOEDA (SUJO)</label>
-        <input type="number" id="valorMoeda" step="0.01" class="input-gamer w-full px-4 py-3 rounded-lg" value="4.00" required="">
-      </div>
-      <div>
-        <label class="block text-sm font-bold text-gray-400 mb-2">% DINHEIRO LIMPO</label>
-        <input type="number" id="percentLimpo" step="0.01" min="0" max="100" class="input-gamer w-full px-4 py-3 rounded-lg" value="85.00" required="">
-        <p class="text-xs text-gray-500 mt-1">Porcentagem que o jogador recebe limpo</p>
-      </div>
-      <div>
-        <label class="block text-sm font-bold text-gray-400 mb-2">% CONTRIBUIÇÃO</label>
-        <input type="number" id="percentContrib" step="0.01" min="0" max="100" class="input-gamer w-full px-4 py-3 rounded-lg" value="15.00" required="">
-        <p class="text-xs text-gray-500 mt-1">Porcentagem destinada ao grupo</p>
-      </div>
-      <div class="calc-preview">
-        <p class="text-xs font-bold text-gray-400 mb-2">TAXA DE DESCONTO TOTAL</p>
-        <div class="text-center">
-          <span class="text-red-400 font-black text-2xl font-orbitron" id="taxaTotalDisplay">15.00%</span>
-          <p class="text-xs text-gray-500 mt-1">Calculado: 100% - Limpo - Contribuição</p>
-        </div>
-      <div class="flex gap-3 pt-2">
-        <button type="submit" class="btn-primary flex-1 py-3 rounded-lg font-bold">
-          <i class="fas fa-save mr-2"></i>SALVAR CONFIG
-        </button>
-        <button type="button" onclick="closeTaxasModal()" class="flex-1 py-3 rounded-lg font-bold bg-[#1a1a1a] border border-[#2d2d2d] hover:border-red-700 transition-all text-[#e0e0e0]">
-          CANCELAR
-        </button>
-      </div>
-    
-  </div></form>
-</div>
-
+<script src="https://unpkg.com/@supabase/supabase-js@2"></script>
 <script>
-  // Storage Keys
-  const STORAGE_KEY = 'serpente_maritima_redm_ranking';
-  const CONFIG_KEY = 'serpente_maritima_config';
-  
-  // Default config - ATUALIZADO PARA 85% LIMPO / 15% CONTRIBUIÇÃO
-  let config = {
-    valorMoeda: 4.00,
-    percentLimpo: 85.00,
-    percentContrib: 15.00
-  };
-  
-  // Default data com 3 jogadores de exemplo
-  let defaultPlayers = [
-    {
-      name: 'Pipoka Moura',
-      id: 1011,
-      coins: 1944,
-      sujo: 7776.00,
-      limpo: 6609.60,
-      contribuicao: 1166.40
-    },
-    {
-      name: 'João Silva',
-      id: 2045,
-      coins: 1200,
-      sujo: 4800.00,
-      limpo: 4080.00,
-      contribuicao: 720.00
-    },
-    {
-      name: 'Maria Costa',
-      id: 3087,
-      coins: 0,
-      sujo: 0,
-      limpo: 0,
-      contribuicao: 0
-    }
-  ];
-  
-  let players = [];
-  let editingIndex = -1;
-  
-  // Load config
-  function loadConfig() {
-    const data = localStorage.getItem(CONFIG_KEY);
-    if (data) {
-      config = JSON.parse(data);
-    }
-    updateConfigDisplay();
-  }
-  
-  // Save config
-  function saveConfig() {
-    localStorage.setItem(CONFIG_KEY, JSON.stringify(config));
-    updateConfigDisplay();
-  }
-  
-  // Update config display
-  function updateConfigDisplay() {
-    document.getElementById('configLimpoDisplay').textContent = config.percentLimpo.toFixed(2) + '%';
-    document.getElementById('configContribDisplay').textContent = config.percentContrib.toFixed(2) + '%';
-  }
-  
-  // Calculate values based on coins
-  function calculateValues(coins) {
-    const sujo = coins * config.valorMoeda;
-    const limpo = sujo * (config.percentLimpo / 100);
-    const contribuicao = sujo * (config.percentContrib / 100);
-    return { sujo, limpo, contribuicao };
-  }
-  
-  // Format currency
-  function formatCurrency(value) {
-    return value.toLocaleString('en-US', {
-      style: 'currency',
-      currency: 'USD',
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2
-    }).replace('$', 'US$ ');
-  }
-  
-  // Load data from localStorage
-  function loadData() {
-    const data = localStorage.getItem(STORAGE_KEY);
-    if (data) {
-      players = JSON.parse(data);
-      // Migration: recalculate all values for existing players
-      players = players.map(p => {
-        const calc = calculateValues(p.coins || 0);
-        return { ...p, ...calc };
-      });
-    } else {
-      // Carregar jogadores de exemplo se não houver dados salvos
-      players = defaultPlayers.map(p => {
-        const calc = calculateValues(p.coins);
-        return { ...p, ...calc };
-      });
-      saveData();
-    }
-    renderRanking();
-  }
-  
-  // Save data to localStorage
-  function saveData() {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(players));
-  }
-  
-  // Custom sort: meta premium > meta mínima > depositou algo > não depositou, depois por coins desc
-  function sortPlayers(a, b) {
-    const aMetaPremium = a.coins >= 2000;
-    const bMetaPremium = b.coins >= 2000;
-    const aMetaMinima = a.coins >= 1000;
-    const bMetaMinima = b.coins >= 1000;
-    
-    // Prioridade 1: Meta Premium
-    if (aMetaPremium && !bMetaPremium) return -1;
-    if (!aMetaPremium && bMetaPremium) return 1;
-    
-    // Prioridade 2: Meta Mínima
-    if (aMetaMinima && !bMetaMinima) return -1;
-    if (!aMetaMinima && bMetaMinima) return 1;
-    
-    // Prioridade 3: Depositou algo vs não depositou
-    const aDeposited = a.coins > 0;
-    const bDeposited = b.coins > 0;
-    if (aDeposited && !bDeposited) return -1;
-    if (!aDeposited && bDeposited) return 1;
-    
-    // Prioridade 4: Ordenar por coins
-    return b.coins - a.coins;
-  }
-  
-  // Render ranking
-  function renderRanking() {
-    const list = document.getElementById('rankingList');
-    const empty = document.getElementById('emptyState');
-    const totalEl = document.getElementById('totalPlayers');
-    
-    // Sort customizado
-    players.sort(sortPlayers);
-    
-    totalEl.textContent = players.length;
-    
-    if (players.length === 0) {
-      list.innerHTML = '';
-      empty.style.display = 'block';
-      return;
-    }
-    
-    empty.style.display = 'none';
-    
-    list.innerHTML = players.map((player, index) => {
-      const percentage = Math.min((player.coins / 2000) * 100, 100);
-      const metaMinima = player.coins >= 1000;
-      const metaPremium = player.coins >= 2000;
-      const noDeposit = player.coins === 0;
-      
-      // Recalculate to ensure consistency
-      const calc = calculateValues(player.coins);
-      
-      let badge = '';
-      let cardClass = 'card-gamer';
-      let checkIcon = '';
-      
-      if (noDeposit) {
-        badge = '<span class="badge-no-deposit px-3 py-1 rounded-full text-xs font-black"><i class="fas fa-times-circle mr-1"></i>SEM DEPÓSITO</span>';
-        cardClass = 'card-gamer card-no-deposit';
-      } else if (metaPremium) {
-        badge = '<span class="badge-premium px-3 py-1 rounded-full text-xs font-black"><i class="fas fa-crown mr-1"></i>META PREMIUM ATINGIDA</span>';
-        checkIcon = '<i class="fas fa-check-circle text-green text-xl mr-2"></i>';
-      } else if (metaMinima) {
-        badge = '<span class="badge-meta px-3 py-1 rounded-full text-xs font-black"><i class="fas fa-check mr-1"></i>META MÍNIMA ATINGIDA</span>';
-        checkIcon = '<i class="fas fa-check-circle text-green text-xl mr-2"></i>';
-      }
-      
-      const progressoMeta = `${player.coins.toLocaleString()}/2000 moedas (${percentage.toFixed(0)}%)`;
-      
-      return `
-        <div class="${cardClass} rounded-xl p-5 md:p-6">
-          <!-- Linha 1: Nome | ID + Badge -->
-          <div class="flex items-center justify-between mb-4 gap-3 flex-wrap">
-            <div class="flex items-center min-w-0 flex-1">
-              ${checkIcon}
-              <div class="min-w-0">
-                <h3 class="text-lg md:text-xl font-black text-white truncate">${player.name} | ID: ${player.id}</h3>
-              </div>
-            </div>
-            <div class="flex-shrink-0">
-              ${badge}
-            </div>
-          </div>
-          
-          <!-- Linha 2: Barra de Progresso -->
-          <div class="mb-4">
-            <div class="relative">
-              <div class="progress-bar h-8 rounded-lg flex items-center justify-center">
-                <div class="progress-fill absolute left-0 top-0 h-full rounded-lg" style="width: ${percentage}%"></div>
-                <span class="relative z-10 text-sm font-black text-white">${progressoMeta}</span>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Linha 3: Grid 2 colunas - Dinheiro Sujo e Limpo -->
-          <div class="grid grid-cols-2 gap-3 mb-3">
-            <div class="stat-box rounded-lg p-4">
-              <div class="flex items-center gap-2 mb-2">
-                <i class="fas fa-sack-dollar text-red-400 text-sm"></i>
-                <span class="text-xs text-gray-500 font-bold">DINHEIRO SUJO</span>
-              </div>
-              <p class="text-xl md:text-2xl currency-value text-white">${formatCurrency(calc.sujo)}</p>
-            </div>
-            <div class="stat-box rounded-lg p-4">
-              <div class="flex items-center gap-2 mb-2">
-                <i class="fas fa-money-bill icon-accent text-sm"></i>
-                <span class="text-xs text-gray-500 font-bold">DINHEIRO LIMPO</span>
-              </div>
-              <p class="text-xl md:text-2xl currency-value text-white">${formatCurrency(calc.limpo)}</p>
-            </div>
-          </div>
-          
-          <!-- Linha 4: Box centralizado - Contribuição -->
-          <div class="stat-box rounded-lg p-4">
-            <div class="flex items-center justify-center gap-2 mb-2">
-              <i class="fas fa-hand-holding-dollar icon-accent text-sm"></i>
-              <span class="text-xs text-gray-500 font-bold">CONTRIBUIÇÃO</span>
-            </div>
-            <p class="text-2xl md:text-3xl currency-value text-green text-center">${formatCurrency(calc.contribuicao)}</p>
-          </div>
-          
-          <!-- Admin Actions -->
-          <div class="flex gap-2 mt-4 pt-4 border-t border-[#2d2d2d]">
-            <button onclick="editPlayer(${index})" class="flex-1 py-2 rounded-lg bg-[#1a1a1a] border border-[#2d2d2d] hover:border-[#4a4a4a] transition-all text-sm font-bold text-[#e0e0e0]">
-              <i class="fas fa-edit icon-accent mr-2"></i>EDITAR
-            </button>
-            <button onclick="deletePlayer(${index})" class="px-4 py-2 rounded-lg bg-red-900/30 border border-red-900/50 hover:border-red-700 transition-all text-sm font-bold">
-              <i class="fas fa-trash text-red-400"></i>
-            </button>
-          </div>
-        </div>
-      `;
-    }).join('');
-  }
-  
-  // Admin functions
-  function toggleAdmin() {
-    document.getElementById('adminPanel').classList.toggle('active');
-  }
-  
-  function cadastrarMembro() {
-    document.getElementById('memberForm').reset();
-    document.getElementById('memberModal').classList.add('active');
-  }
-  
-  function addPlayer() {
-    editingIndex = -1;
-    document.getElementById('modalTitle').textContent = 'ATUALIZAR DEPÓSITO';
-    document.getElementById('playerForm').reset();
-    updatePreview();
-    document.getElementById('playerModal').classList.add('active');
-  }
-  
-  function configTaxas() {
-    document.getElementById('valorMoeda').value = config.valorMoeda;
-    document.getElementById('percentLimpo').value = config.percentLimpo;
-    document.getElementById('percentContrib').value = config.percentContrib;
-    updateTaxaTotal();
-    document.getElementById('taxasModal').classList.add('active');
-  }
-  
-  function editPlayer(index) {
-    editingIndex = index;
-    const player = players[index];
-    document.getElementById('modalTitle').textContent = 'EDITAR DEPÓSITO';
-    document.getElementById('playerName').value = player.name;
-    document.getElementById('playerId').value = player.id;
-    document.getElementById('playerCoins').value = player.coins;
-    updatePreview();
-    document.getElementById('playerModal').classList.add('active');
-  }
-  
-  function deletePlayer(index) {
-    if (confirm(`Remover ${players[index].name} do ranking?`)) {
-      players.splice(index, 1);
-      saveData();
-      renderRanking();
-    }
-  }
-  
-  function closeModal() {
-    document.getElementById('playerModal').classList.remove('active');
-  }
-  
-  function closeMemberModal() {
-    document.getElementById('memberModal').classList.remove('active');
-  }
-  
-  function closeTaxasModal() {
-    document.getElementById('taxasModal').classList.remove('active');
-  }
-  
-  function resetWeek() {
-    if (confirm('Tem certeza que deseja resetar todo o ranking da semana? Esta ação não pode ser desfeita!')) {
-      players = [];
-      saveData();
-      renderRanking();
-    }
-  }
-  
-  function exportData() {
-    const dataStr = JSON.stringify(players, null, 2);
-    const dataBlob = new Blob([dataStr], { type: 'application/json' });
-    const url = URL.createObjectURL(dataBlob);
-    const link = document.createElement('a');
-    link.href = url;
-    link.download = `serpente-ranking-${new Date().toISOString().split('T')[0]}.json`;
-    link.click();
-  }
-  
-  // Update preview in modal
-  function updatePreview() {
-    const coins = parseInt(document.getElementById('playerCoins').value) || 0;
-    const calc = calculateValues(coins);
-    document.getElementById('previewSujo').textContent = formatCurrency(calc.sujo);
-    document.getElementById('previewLimpo').textContent = formatCurrency(calc.limpo);
-    document.getElementById('previewContrib').textContent = formatCurrency(calc.contribuicao);
-  }
-  
-  // Update taxa total display
-  function updateTaxaTotal() {
-    const limpo = parseFloat(document.getElementById('percentLimpo').value) || 0;
-    const contrib = parseFloat(document.getElementById('percentContrib').value) || 0;
-    const total = 100 - limpo - contrib;
-    document.getElementById('taxaTotalDisplay').textContent = total.toFixed(2) + '%';
-  }
-  
-  // Listen to coins input changes
-  document.getElementById('playerCoins').addEventListener('input', updatePreview);
-  document.getElementById('percentLimpo').addEventListener('input', updateTaxaTotal);
-  document.getElementById('percentContrib').addEventListener('input', updateTaxaTotal);
-  
-  // Form submit player
-  document.getElementById('playerForm').addEventListener('submit', (e) => {
-    e.preventDefault();
-    
-    const coins = parseInt(document.getElementById('playerCoins').value) || 0;
-    const calc = calculateValues(coins);
-    
-    const player = {
-      name: document.getElementById('playerName').value,
-      id: parseInt(document.getElementById('playerId').value),
-      coins: coins,
-      sujo: calc.sujo,
-      limpo: calc.limpo,
-      contribuicao: calc.contribuicao
-    };
-    
-    if (editingIndex >= 0) {
-      players[editingIndex] = player;
-    } else {
-      // Check if ID exists, update instead of add
-      const existingIndex = players.findIndex(p => p.id === player.id);
-      if (existingIndex >= 0) {
-        players[existingIndex] = player;
-      } else {
-        players.push(player);
-      }
-    }
-    
-    saveData();
-    renderRanking();
-    closeModal();
-  });
-  
-  // Form submit member
-  document.getElementById('memberForm').addEventListener('submit', (e) => {
-    e.preventDefault();
-    
-    const calc = calculateValues(0);
-    const member = {
-      name: document.getElementById('memberName').value,
-      id: parseInt(document.getElementById('memberId').value),
-      coins: 0,
-      sujo: calc.sujo,
-      limpo: calc.limpo,
-      contribuicao: calc.contribuicao
-    };
-    
-    // Verificar se ID já existe
-    if (players.some(p => p.id === member.id)) {
-      alert('Já existe um membro cadastrado com este ID!');
-      return;
-    }
-    
-    players.push(member);
-    saveData();
-    renderRanking();
-    closeMemberModal();
-  });
-  
-  // Form submit taxas
-  document.getElementById('taxasForm').addEventListener('submit', (e) => {
-    e.preventDefault();
-    
-    config.valorMoeda = parseFloat(document.getElementById('valorMoeda').value);
-    config.percentLimpo = parseFloat(document.getElementById('percentLimpo').value);
-    config.percentContrib = parseFloat(document.getElementById('percentContrib').value);
-    
-    saveConfig();
-    
-    // Recalcular todos os jogadores
-    players = players.map(p => {
-      const calc = calculateValues(p.coins || 0);
-      return { ...p, ...calc };
-    });
-    
-    saveData();
-    renderRanking();
-    closeTaxasModal();
-    
-    alert('Taxas atualizadas! Todos os valores foram recalculados.');
-  });
-  
-  // Close modal on outside click
-  document.getElementById('playerModal').addEventListener('click', (e) => {
-    if (e.target.id === 'playerModal') {
-      closeModal();
-    }
-  });
-  
-  document.getElementById('memberModal').addEventListener('click', (e) => {
-    if (e.target.id === 'memberModal') {
-      closeMemberModal();
-    }
-  });
-  
-  document.getElementById('taxasModal').addEventListener('click', (e) => {
-    if (e.target.id === 'taxasModal') {
-      closeTaxasModal();
-    }
-  });
-  
-  // Init
-  loadConfig();
-  loadData();
-</script>
-<script>(function(){document.addEventListener("click",function(e){var a=e.target.closest("[data-product-id]");if(!a)return;e.preventDefault();var pid=a.getAttribute("data-product-id");if(pid)parent.postMessage({type:"ecto-artifact-link-click",productId:pid},"*")})})();</script>
+const SUPABASE_URL = 'https://svovjkplzjdifyumtiwh.supabase.co'
+const SUPABASE_KEY = 'sb_publishable_FgX7hvfrvo57uMW2Npq56A_lJydU1bg'
+const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY)
 
-</div></body></html>
+function abrirModalComprovante() {
+  document.getElementById('modalComprovante').classList.add('active')
+}
+function fecharModalComprovante() {
+  document.getElementById('modalComprovante').classList.remove('active')
+}
+
+function showToast(msg) {
+  const toast = document.getElementById('toast')
+  document.getElementById('toastMsg').textContent = msg
+  toast.classList.remove('hidden')
+  toast.classList.add('show')
+  setTimeout(() => {
+    toast.classList.remove('show')
+    setTimeout(() => toast.classList.add('hidden'), 300)
+  }, 3000)
+}
+
+document.getElementById('formComprovante').addEventListener('submit', async (e) => {
+  e.preventDefault()
+
+  const deposito = {
+    id_redm: parseInt(document.getElementById('id_redm').value),
+    nick: document.getElementById('nick').value,
+    valor: parseFloat(document.getElementById('valor').value),
+    tipo: document.getElementById('tipo').value,
+    status: 'pendente'
+  }
+
+  const { error } = await supabase.from('depositos_pendentes').insert([deposito])
+
+  if (error) {
+    alert('Erro ao enviar: ' + error.message)
+  } else {
+    showToast('Comprovante enviado! Aguarde aprovação.')
+    fecharModalComprovante()
+    document.getElementById('formComprovante').reset()
+  }
+})
+
+document.getElementById('modalComprovante').addEventListener('click', (e) => {
+  if (e.target.id === 'modalComprovante') fecharModalComprovante()
+})
+</script>
+
+</body>
+</html>
