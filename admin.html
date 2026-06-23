@@ -1,15 +1,317 @@
-Depósitos pendentes
+<!DOCTYPE html>
+<html lang="pt-BR">
 
-Player: João
-Moedas: 50
-Valor: $200
-[foto]
+<head>
 
-APROVAR ✅
-REPROVAR ❌
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ADM - Serpente Marítima</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+</head>
 
 
-Players:
+<body class="bg-gray-900 text-white">
 
-João - 50 moedas
-[Editar] [Zerar] [Excluir]
+
+<div class="max-w-6xl mx-auto p-5">
+
+
+<div class="bg-gray-800 p-5 rounded-xl border border-gray-700">
+
+<h1 class="text-2xl font-bold">
+SERPENTE <span class="text-green-500">MARÍTIMA</span>
+</h1>
+
+<p class="text-gray-400">
+PAINEL ADMINISTRADOR
+</p>
+
+</div>
+
+
+
+<div class="bg-gray-800 p-5 rounded-xl mt-5">
+
+
+<h2 class="text-xl font-bold mb-4">
+Depósitos Pendentes
+</h2>
+
+
+<div id="depositos">
+
+Carregando...
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="bg-gray-800 p-5 rounded-xl mt-5">
+
+
+<h2 class="text-xl font-bold mb-4">
+Players
+</h2>
+
+
+<div id="players">
+
+Carregando...
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+
+<script>
+
+
+const URL="COLOQUE_SEU_SUPABASE_URL"
+
+const KEY="COLOQUE_SUA_KEY"
+
+
+const db=supabase.createClient(URL,KEY)
+
+
+
+
+
+async function carregar(){
+
+
+let dep =
+await db.from("depositos")
+.select("*")
+.eq("status","pendente")
+
+
+
+let html=""
+
+
+
+dep.data.forEach(d=>{
+
+
+html+=`
+
+<div class="bg-gray-900 p-4 rounded mb-3">
+
+
+<p>
+<b>${d.nick}</b>
+(ID ${d.id_redm})
+</p>
+
+
+<p>
+Moedas: ${d.moedas}
+</p>
+
+
+<p>
+Valor: $${d.valor}
+</p>
+
+
+<img src="${d.foto}"
+class="w-40 rounded mt-2">
+
+
+<div class="flex gap-2 mt-3">
+
+
+<button onclick="aprovar(${d.id})"
+class="bg-green-600 px-4 py-2 rounded">
+
+APROVAR
+
+</button>
+
+
+
+<button onclick="reprovar(${d.id})"
+class="bg-red-600 px-4 py-2 rounded">
+
+REPROVAR
+
+</button>
+
+
+</div>
+
+
+</div>
+
+`
+
+})
+
+
+document.getElementById("depositos")
+.innerHTML=html || "Nenhum depósito"
+
+
+
+}
+
+
+
+async function aprovar(id){
+
+
+await db.from("depositos")
+.update({
+
+status:"aprovado"
+
+})
+
+.eq("id",id)
+
+
+
+alert("Aprovado!")
+
+carregar()
+
+
+}
+
+
+
+
+async function reprovar(id){
+
+
+await db.from("depositos")
+.update({
+
+status:"reprovado"
+
+})
+
+.eq("id",id)
+
+
+
+alert("Reprovado!")
+
+carregar()
+
+
+}
+
+
+
+async function carregarPlayers(){
+
+
+let r =
+await db.from("players")
+.select("*")
+
+
+
+let html=""
+
+
+
+r.data.forEach(p=>{
+
+
+html+=`
+
+<div class="bg-gray-900 p-3 rounded mb-2 flex justify-between">
+
+
+<div>
+
+${p.nick}
+
+<br>
+
+<span class="text-green-500">
+
+${p.moedas} moedas
+
+</span>
+
+
+</div>
+
+
+
+<button onclick="zerar(${p.id})"
+class="bg-red-600 px-3 rounded">
+
+ZERAR
+
+</button>
+
+
+</div>
+
+`
+
+})
+
+
+document.getElementById("players")
+.innerHTML=
+html || "Nenhum player"
+
+
+
+}
+
+
+
+
+
+async function zerar(id){
+
+
+await db.from("players")
+.update({
+
+moedas:0
+
+})
+.eq("id",id)
+
+
+carregarPlayers()
+
+}
+
+
+
+
+carregar()
+
+carregarPlayers()
+
+
+</script>
+
+
+</body>
+
+</html>
